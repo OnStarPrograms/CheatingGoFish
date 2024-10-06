@@ -1,4 +1,4 @@
-from cheater import cheater
+from imports.bot import bot
 from player import player
 import random
 
@@ -17,32 +17,32 @@ def main():
 
         
     mplayer = player(deal1)
-    mcheater = cheater(deal2, dir(mplayer), mplayer)
+    mbot = bot(deal2, dir(mplayer), mplayer)
     prevMoves = [0,0,0]
     point = 0
     while (True):
         mplayer.placeCardInHand(prevMoves)
-        mcheater.placeCardInHand()
+        mbot.placeCardInHand()
         
-        if mcheater.GetScore() >= 5:
+        if mbot.GetScore() >= 5:
             print("Cheater Win")
             break
         elif mplayer.GetScore() >=5:
             print("Player Wins")
             break
-        player2Choice = mcheater.AskPlayer()
+        player2Choice = mbot.AskPlayer()
         _match = mplayer.PlayerResponse(player2Choice)
         if (_match):
-            mcheater.PlayerRecieved()
+            mbot.PlayerReceived()
         else:
             choicer = random.randint(0, len(deck2)-1)
-            mcheater.GoFish(deck2[choicer])
+            mbot.GoFish(deck2[choicer])
             deck2.remove(deck2[choicer])
             
         player1Choice = mplayer.AskPlayer()
-        _match = mcheater.PlayerResponse(player1Choice)
+        _match = mbot.PlayerResponse(player1Choice)
         if (_match):
-            mplayer.PlayerRecieved()
+            mplayer.PlayerReceived()
         else:
             choicer = random.randint(0, len(deck1)-1)
             mplayer.GoFish(deck1[choicer])

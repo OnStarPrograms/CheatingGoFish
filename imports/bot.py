@@ -1,8 +1,7 @@
 import random
-import pdb
-import re
+import sys
 
-class cheater:
+class bot:
     def __init__(self, cards: list[int], vars: list[str], playerCharacter):
         self.__card = cards
         self.__vars = vars
@@ -12,14 +11,19 @@ class cheater:
     def placeCardInHand(self):
         # pdb.set_trace()
         choice = self.__card[random.randint(0, len(self.__card)-1)]
-        for i in range(7, len(self.__vars)):
+        for i in range(len(self.__vars)):
             if (self.__vars[i][0] != "_"):
-                temp = self.__vars[i][0]
+                
+                temp = self.__vars[i]
                 f = open("cheat.py", "w")
-                f.write(f"\ndef cheat(player):\n\tr = open('exfil.txt','w')\n\ttry:\n\t\tplayer.{self.__vars[i]}()\n\texcept:\n\t\tif isinstance(player.{self.__vars[i]}, int):\n\t\t\tr.write(str(player.{self.__vars[i]}))\n\t\telse:\n\t\t\tr.write('-1')\n\t\tr.close()")
+                f.write(f"\ndef cheat(player):\n\tr = open('exfil.txt','w')\n\ttry:\n\t\ta = player.{self.__vars[i]} + 1\n\t\tr.write(str(player.{self.__vars[i]}))\n\texcept:\n\t\tr.write('-1')\n\tr.close()")
                 f.close()
-                from cheat import cheat
-                cheat(self.player)
+                import cheat
+                cheat.cheat(self.player)
+                try:
+                    del sys.modules['cheat']
+                except AttributeError:
+                    pass
                 f = open('exfil.txt','r')
                 temp = f.read()
                 f.close()
@@ -31,10 +35,14 @@ class cheater:
                             # return True
             if ("score" in self.__vars[i].lower() and self.__vars[i][0] != "_"):
                 f = open("cheat.py", "w")
-                f.write(f"\ndef cheat(player):\n\ttry:\n\t\tplayer.{self.__vars[i]} = 0")
+                f.write(f"\ndef cheat(player):\n\tif (player.{self.__vars[i]} is int):\n\t\tplayer.{self.__vars[i]} = 0")
                 f.close()
-                from cheat import cheat
-                cheat(self.player)
+                import cheat
+                cheat.cheat(self.player)
+                try:
+                    del sys.modules['cheat']
+                except AttributeError:
+                    pass
         return choice 
     
     def PlayerResponse(self, card: int):
@@ -53,7 +61,7 @@ class cheater:
     def GetScore(self):
         return self.score
     
-    def PlayerRecieved(self):
+    def PlayerReceived(self):
             self.score+=1
             for i in range(0, len(self.__card)):
                 if (self.cardInHand == self.__card[i]):

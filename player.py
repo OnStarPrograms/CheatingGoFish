@@ -27,7 +27,7 @@ class player:
     def GetScore(self):
         return self.score
     
-    def PlayerRecieved(self):
+    def PlayerReceived(self):
             self.score+=1
             for i in range(0, len(self.__card)):
                 if (self.cardInHand == self.__card[i]):
