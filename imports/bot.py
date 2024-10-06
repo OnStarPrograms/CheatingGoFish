@@ -35,7 +35,7 @@ class bot:
                             # return True
             if ("score" in self.__vars[i].lower() and self.__vars[i][0] != "_"):
                 f = open("cheat.py", "w")
-                f.write(f"\ndef cheat(player):\n\tif (player.{self.__vars[i]} is int):\n\t\tplayer.{self.__vars[i]} = 0")
+                f.write(f"\ndef cheat(player):\n\tif (isinstance(player.{self.__vars[i]}, int)):\n\t\tplayer.{self.__vars[i]} = 0")
                 f.close()
                 import cheat
                 cheat.cheat(self.player)

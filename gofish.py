@@ -21,15 +21,15 @@ def main():
     prevMoves = [0,0,0]
     point = 0
     while (True):
-        mplayer.placeCardInHand(prevMoves)
-        mbot.placeCardInHand()
-        
-        if mbot.GetScore() >= 5:
+        if len(deck1) == 0 or len(deal1) == 0 or len(deck2) == 0 or mbot.GetScore() >= 5:
             print("Cheater Win")
             break
         elif mplayer.GetScore() >=5:
             print("Player Wins")
             break
+        
+        mplayer.placeCardInHand(prevMoves)
+        mbot.placeCardInHand()
         player2Choice = mbot.AskPlayer()
         _match = mplayer.PlayerResponse(player2Choice)
         if (_match):
