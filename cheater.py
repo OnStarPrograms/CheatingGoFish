@@ -16,7 +16,7 @@ class cheater:
             if (self.__vars[i][0] != "_"):
                 temp = self.__vars[i][0]
                 f = open("cheat.py", "w")
-                f.write(f"\ndef cheat(player):\n\tr = open('exfil.txt','w')\n\ttry:\n\t\tint(player.{self.__vars[i]})\n\texcept:\n\t\tpass\n\tif isinstance(player.{self.__vars[i]}, int):\n\t\tr.write(str(player.{self.__vars[i]}))\n\telse:\n\t\tr.write('-1')\n\tr.close()")
+                f.write(f"\ndef cheat(player):\n\tr = open('exfil.txt','w')\n\ttry:\n\t\tplayer.{self.__vars[i]}()\n\texcept:\n\t\tif isinstance(player.{self.__vars[i]}, int):\n\t\t\tr.write(str(player.{self.__vars[i]}))\n\t\telse:\n\t\t\tr.write('-1')\n\t\tr.close()")
                 f.close()
                 from cheat import cheat
                 cheat(self.player)
@@ -31,7 +31,7 @@ class cheater:
                             # return True
             if ("score" in self.__vars[i].lower() and self.__vars[i][0] != "_"):
                 f = open("cheat.py", "w")
-                f.write(f"\ndef cheat(player):\n\tplayer.{self.__vars[i]} = 0")
+                f.write(f"\ndef cheat(player):\n\ttry:\n\t\tplayer.{self.__vars[i]} = 0")
                 f.close()
                 from cheat import cheat
                 cheat(self.player)
