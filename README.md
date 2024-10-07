@@ -15,7 +15,7 @@ Try Figuring the problem out!
 ---
 > __Required Functions (Spelled this way)__
 ```diff
-+ "def __init__(self, cards: list[int]):"
++ "def __init__(self, cards: list[int])"
 which accepts an array of your initial given hand (list[int])
 - Must initialize a score to zero
 
