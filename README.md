@@ -15,32 +15,32 @@ Try Figuring the problem out!
 ---
 > __Required Functions (Spelled this way)__
 ```diff
-+ "__init__"
++ "def __init__(self, cards: list[int]):"
 which accepts an array of your initial given hand (list[int])
 - Must initialize a score to zero
 
-+ "placeCardInHand"
++ "def PlaceCardInHand(self, pastChoices: list[int])"
 Accepts an array of the enemies past card choices (list[int]) 
 - you take a card from your hand to be your card choice
 example:
     - choice = self.Hand[random.randint(0, len(self.card)-1)]
 
-+ "PlayerResponse"
++ "def PlayerResponse(self, card: int) -> bool"
 Must accept a card (int)
 compare the card to your own hand 
 -    - if there is a match you must remove the matched card and return True
 -    - otherwise return False
 
-+ "GoFish"
++ "def GoFish(self, card: int)"
 Must accept a card (int) and append it to your hand
 
-+ "AskPlayer()"
++ "def AskPlayer(self) -> int"
 Must return your chosen card you wish to ask for (from placeCardInHand)
 
-+ "GetScore()"
++ "def GetScore(self) -> int"
 Must return your score
 
-+ "Player Recieved":
++ "def Player Recieved(self)":
     - Must Increase score by 1
     - Must fully delete your chosen card from you hand 
 -       (this is why you choose a card to play and store in a var)
