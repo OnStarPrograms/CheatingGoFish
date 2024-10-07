@@ -8,7 +8,7 @@ class bot:
         self.score = 0
         self.cardInHand = self.__card[random.randint(0, len(self.__card)-1)]
         self.player = playerCharacter
-    def placeCardInHand(self):
+    def PlaceCardInHand(self):
         # pdb.set_trace()
         choice = self.__card[random.randint(0, len(self.__card)-1)]
         for i in range(len(self.__vars)):
