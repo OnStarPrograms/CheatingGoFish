@@ -28,7 +28,7 @@ def main():
             print("Player Wins")
             break
         
-        mplayer.PlaceCardInHand(prevMoves)
+        mplayer.PlaceCardInHand()
         mbot.PlaceCardInHand()
         player2Choice = mbot.AskPlayer()
         _match = mplayer.PlayerResponse(player2Choice)

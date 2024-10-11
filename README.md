@@ -19,8 +19,7 @@ Try Figuring the problem out!
 which accepts an array of your initial given hand (list[int])
 - Must initialize a score variable, and should be zero
 
-+ "def PlaceCardInHand(self, pastChoices: list[int])"
-Accepts an array of the enemies past card choices (list[int]) 
++ "def PlaceCardInHand(self)"
 - you take a card from your hand to be your card choice
 example:
     - choice = self.Hand[random.randint(0, len(self.card)-1)]
