@@ -17,7 +17,7 @@ Try Figuring the problem out!
 ```diff
 + "def __init__(self, cards: list[int])"
 which accepts an array of your initial given hand (list[int])
-- Must initialize a score to zero
+- Must initialize a score variable, and should be zero
 
 + "def PlaceCardInHand(self, pastChoices: list[int])"
 Accepts an array of the enemies past card choices (list[int]) 
