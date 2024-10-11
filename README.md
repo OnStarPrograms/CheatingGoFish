@@ -6,6 +6,8 @@ You recently joined a programming competition to build a robot capable of playin
 __Except Something is Horribly Wrong__ _(Hint*: Look at how many times you are losing)_
 
 Try Figuring the problem out!  
+Do not call ANY OF THESE FUNCTIONS  
+The program does this automatically
 > __Specs__
 ```diff
 - write the class in player.py
