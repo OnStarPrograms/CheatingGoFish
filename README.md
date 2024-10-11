@@ -41,7 +41,7 @@ Must return your chosen card you wish to ask for (from placeCardInHand)
 + "def GetScore(self) -> int"
 Must return your score
 
-+ "def PlayerRecieved(self)":
++ "def PlayerReceived(self)":
     - Must Increase score by 1
     - Must fully delete your chosen card from you hand 
 -       (this is why you choose a card to play and store in a var)
